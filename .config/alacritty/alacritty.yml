@@ -1,0 +1,96 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 12
+    y: 6
+
+  title: Alacritty
+
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+       
+
+cursor:
+  style:
+    shape: Beam
+  blink_interval: 500
+  unfocused_hollow: true
+  thickness: 0.15
+
+font:
+  normal:
+    # family: MesloLGS NF
+    # family: Hack Nerd Font
+    # family: Cascadia Mono
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+
+
+    style: Bold Italic
+
+  # Point size
+  size: 10.5
+
+  offset:
+    x: 1
+    y: 1
+
+# Colors (Nightfly)
+colors:
+   # Default colors
+  primary:
+     background: '#011627'
+     foreground: '#acb4c2'
+
+  cursor:
+    text: '#fafafa'
+    cursor: '#9ca1aa'
+
+  selection:
+    text: '#080808'
+    background: '#b2ceee'
+
+   # Normal colors
+  normal:
+    black:   '#1d3b53'
+    red:     '#fc514e'
+    green:   '#a1cd5e'
+    yellow:  '#e3d18a'
+    blue:    '#82aaff'
+    magenta: '#c792ea'
+    cyan:    '#7fdbca'
+    white:   '#a1aab8'
+
+   # Bright colors
+  bright:
+    black:   '#7c8f8f'
+    red:     '#ff5874'
+    green:   '#21c7a8'
+    yellow:  '#ecc48d'
+    blue:    '#82aaff'
+    magenta: '#ae81ff'
+    cyan:    '#7fdbca'
+    white:   '#d6deeb'
+  indexed_colors:
+    - { index: 18, color: '0x073642' }
+    - { index: 16, color: '0xcb4b16' }
+    - { index: 17, color: '0xd33682' }
+    - { index: 19, color: '0x586e75' }
+    - { index: 20, color: '0x839496' }
+    - { index: 21, color: '0xeee8d5' }
+
