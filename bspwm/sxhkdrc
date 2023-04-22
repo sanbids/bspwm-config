@@ -1,0 +1,212 @@
+super + shift + w
+  feh --randomize --bg-fill ~/.config/bspwm/rices/emilia/favwall/*
+  
+super + e
+  emacs
+
+super + t
+  termite
+
+#emoji                            
+ctrl + shift + e
+	rofi -modi emoji -show emoji
+
+super + alt + c
+  alacritty -e "lvim $HOME/.config/lvim/config.lua"
+
+super + shift + c 
+  alacritty -e "lvim $HOME/.config/bspwm/bspwmrc"
+
+#wifi menu 
+ctrl + shift + w
+	~/.config/bspwm/rofi-wifi-menu.sh
+#ranger 
+super + shift + r 
+	alacritty -e ranger
+
+# terminal emulator
+super + Return
+	alacritty
+
+#cal
+
+# broswer
+super + b
+  brave-browser-nightly 
+
+# spotify 
+super + s
+	spotify 
+
+#hide
+super + ctrl + h
+	hu-polybar -h 
+#unhide
+super + ctrl + u 
+	hu-polybar -u
+		     
+# screenshoots
+super + shift + s
+  screenshot
+        
+# Change transparency on focused window
+ctrl + alt {plus,minus,t}
+	{picom-trans -c -o +3, picom-trans -c -o -1, picom-trans -c -d}
+        
+        
+ctrl + super + alt + {p,r,q,l}
+  {systemctl poweroff, systemctl reboot,bspc quit,betterlockscreen -l}
+        
+# Matar Procesos
+ctrl + super + alt + k
+	{xkill}
+        
+# Menu aplicaciones
+ctrl + @space
+	rofi -no-lazy-grab -show drun -theme $HOME/.config/bspwm/rices/$RICETHEME/launcher.rasi
+	
+# Theme Selector
+alt + @space
+	RiceSelector &
+
+# Reload sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Changed done'
+	
+# Random wallpaper
+super + alt + w
+	RandomWall
+
+#
+# bspwm hotkeys
+#
+
+# thunar
+super + comma 
+	thunar
+
+# Refresh BSPWM
+super + alt + r
+	bspc wm -r
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+ 
+# Circulate the leaves of the tree
+super + {_,shift + }c
+	bspc node @/ --circulate {backward,forward}
+
+# Make split ratios equal
+super + equal
+	bspc node @/ --equalize
+
+# Make split ratios balanced
+super + minus
+	bspc node @/ --balance
+
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+
+# set the window state
+super + f
+	bspc node focused.tiled -t fullscreen || bspc node focused.fullscreen -t tiled
+	
+
+# set small tiled
+super + shift + @space
+	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+#change place
+
+super + @space 
+	bspc node -f next.local.window
+super + alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}.local.window
+
+
+
+# Focused desktop window gaps scroll
+super + button{4,5}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
+
+# Global window gaps scroll
+super + alt + button{4,5}
+	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+
+# i3 like resizing
+alt + l
+    /bin/sh $HOME/.config/bspwm/resize/shrinkx.sh
+alt + h
+    /bin/sh $HOME/.config/bspwm/resize/expandx.sh
+alt + k
+    /bin/sh $HOME/.config/bspwm/resize/shrinky.sh
+alt + j
+    /bin/sh $HOME/.config/bspwm/resize/expandy.sh
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-10 0,0 10,0 -10,10 0}
+	
+## Media keys
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+XF86AudioPlay 
+        playerctl play-pause
+        
+XF86AudioStop
+        playerctl stop
+        
+XF86AudioNext 
+        playerctl next
+        
+XF86AudioPrev 
+        playerctl previous
+        
+#Bightness
+# Brightness up
+XF86MonBrightnessUp
+  brightnessctl s +10%
+
+# And brightness down
+XF86MonBrightnessDown
+  brightnessctl s 10%-
+
+super + alt + s
+  termdrop.sh "Alacritty" "alacritty -e lvim ~/.config/bspwm/sxhkdrc" "801x661+543+177"
+
+super + shift + Return
+  fullscreenA.sh
+
+super + shift + v
+  virtualbox
